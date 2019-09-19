@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="5dp"
+    android:paddingLeft="40dp"
+    android:paddingRight="40dp"
+    android:gravity="center"
+    android:background="#ffffff"
+    tools:context="com.example.forever.pid.AddPrescription">
+
+    <TextView
+        android:id="@+id/add_presTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text=" Add Prescriptions"
+        android:textColor="#000"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/doctorNameET"
+        style="@style/addDocEditText"
+        android:layout_margin="10dp"
+        android:background="@drawable/reg_edittext_style"
+
+        android:hint="Add Doctor Name" />
+
+    <TextView
+        android:id="@+id/doctorDeatilsET"
+        style="@style/addDocEditText"
+        android:layout_margin="10dp"
+        android:background="@drawable/reg_edittext_style"
+
+        android:hint="Add Doctor Details" />
+
+    <TextView
+        android:id="@+id/showImgePath"
+        style="@style/addDocEditText"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/reg_edittext_style"
+        android:hint="Show image path"
+        android:maxLines="3"
+
+        android:textSize="12sp" />
+
+    <!-- <EditText
+         android:id="@+id/docId"
+         style="@style/addDocEditText"
+         android:hint="Show  ID"
+
+         />-->
+
+    <ImageButton
+        android:id="@+id/presImageButton"
+        android:layout_width="156dp"
+        android:layout_height="57dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/camera" />
+
+    <Button
+        android:id="@+id/prestionDate"
+        android:textColor="#ffffff"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/reg_btn_style"
+        android:onClick="showDate"
+        android:text="Add Date" />
+
+    <Button
+        android:id="@+id/addMedicalBtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/reg_btn_green"
+        android:onClick="addMedicalHistory"
+        android:text="Add Medical History"
+        android:textColor="#000080" />
+
+
+
+</LinearLayout>

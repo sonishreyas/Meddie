@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="5dp"
+    android:paddingLeft="40dp"
+    android:paddingRight="40dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.example.forever.pid.MainActivity"
+    android:background="#ffffff">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@drawable/reg_edittext_style"
+        android:fontFamily="sans-serif"
+        android:text="Add Doctor"
+        android:textColor="#000"
+        android:textColorHint="#A9A9A9"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/doctor" />
+
+    <EditText
+        android:id="@+id/doctorName"
+        style="@style/addDocEditText"
+        android:layout_margin="5dp"
+        android:background="@drawable/reg_edittext_style"
+        android:hint="Enter Doctor name"
+        android:textColorHint="#A9A9A9"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/doctorDetails"
+        style="@style/addDocEditText"
+        android:layout_margin="5dp"
+        android:background="@drawable/reg_edittext_style"
+        android:hint="Enter Doctor Details"
+        android:textColorHint="#A9A9A9"
+        android:textSize="18sp" />
+
+    <!--<EditText
+        android:id="@+id/doctorAppoinment"
+        style="@style/addDocEditText"
+        android:hint="Enter Appoinment"
+        />-->
+
+
+    <EditText
+        android:id="@+id/doctorPhone"
+        style="@style/addDocEditText"
+        android:layout_margin="5dp"
+        android:background="@drawable/reg_edittext_style"
+        android:hint="Enter Phone Number"
+        android:inputType="phone"
+        android:textColorHint="#A9A9A9"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/doctorEmail"
+        style="@style/addDocEditText"
+        android:layout_margin="5dp"
+        android:background="@drawable/reg_edittext_style"
+        android:hint="Enter Email"
+        android:inputType="textEmailAddress"
+        android:textColorHint="#A9A9A9"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/doctorAppoinment"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/reg_btn_style"
+        android:onClick="showDate"
+        android:text="Set date"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="203dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/reg_btn_green"
+        android:onClick="addDoctor"
+        android:text="Add Doctor"
+        android:textColor="#000"
+        android:textSize="18sp" />
+
+</LinearLayout>

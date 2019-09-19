@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#ffffff"
+    tools:context="com.example.forever.pid.SignUpActivity">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="15dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/adduser" />
+
+    <EditText
+        android:id="@+id/signUpName"
+        style="@style/loginEditText"
+        android:layout_margin="10dp"
+        android:background="@drawable/reg_edittext_style"
+        android:hint="Enter your Name"
+        android:inputType="textEmailAddress"
+        android:textColorHint="#A9A9A9"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/signUpEmail"
+        style="@style/loginEditText"
+        android:layout_margin="10dp"
+        android:background="@drawable/reg_edittext_style"
+        android:hint="Enter your Email"
+        android:inputType="textWebEmailAddress"
+        android:textColorHint="#A9A9A9"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/signUpPassword"
+        style="@style/loginEditText"
+        android:layout_margin="10dp"
+        android:background="@drawable/reg_edittext_style"
+        android:hint="Enter your Password"
+        android:inputType="textPassword"
+
+        android:textColorHint="#A9A9A9"
+        android:textSize="18sp" />
+
+    <Button
+        android:background="@drawable/reg_btn_style"
+        android:id="@+id/signUpBtnBtn"
+        style="@style/loginBtn"
+        android:layout_width="201dp"
+        android:layout_margin="10dp"
+        android:onClick="saveUser"
+        android:text="Sign UP"
+        android:textSize="18sp" />
+
+</LinearLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#ffffff"
+
+
+    tools:context="com.example.forever.pid.LoginActivity"
+
+    >
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/boss" />
+
+    <EditText
+        android:id="@+id/loginEmail"
+        style="@style/loginEditText"
+        android:layout_width="321dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/reg_edittext_style"
+        android:hint="Enter your Email"
+        android:inputType="textEmailAddress"
+        android:textColorHint="#A9A9A9"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/loginPassword"
+        style="@style/loginEditText"
+        android:layout_width="317dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/reg_edittext_style"
+        android:hint="Enter your Password"
+
+        android:inputType="textPassword"
+        android:textColorHint="#A9A9A9"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/loginBtn"
+        style="@style/loginBtn"
+        android:layout_width="148dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/reg_btn_style"
+        android:onClick="justLogin"
+        android:text="Login"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="15dp"
+        android:text="No Account Yet ? \n        Sign Up"
+        android:textColor="#A9A9A9"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/signUpBtn"
+        style="@style/loginBtn"
+        android:layout_width="151dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/reg_btn_style"
+        android:onClick="goSignUp"
+        android:text="Sign Up"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+</LinearLayout>
