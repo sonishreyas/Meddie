@@ -1,15 +1,20 @@
 package com.example.forever.pid;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
 
 public class dashboard extends AppCompatActivity implements View.OnClickListener {
 
     private CardView bankCard,ideasCard,addCard,linkCard,wifiCard;
+    private WebView webview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +44,7 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
             case R.id.bank_card : i = new Intent(this,AddDoctorActivity.class); startActivity(i);  break;
             case R.id.ideas_card : i = new Intent(this,AddPrescription.class);startActivity(i) ;break;
             case R.id.add_card : i = new Intent(this,DoctorListActivity.class); startActivity(i);break;
-            case R.id.link_card : i = new Intent(this,AddPrescription.class);  startActivity(i);break;
+            case R.id.link_card : openWebPage("https://google.com"); break;
             case R.id.wificard : i = new Intent(this,AddPrescription.class); startActivity(i);break;
             default:break;
 
@@ -47,4 +52,11 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
 
     }
 
+    public void openWebPage(String url) {
+        Uri webpage = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
 }

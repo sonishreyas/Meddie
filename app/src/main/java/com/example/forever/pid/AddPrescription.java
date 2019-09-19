@@ -231,7 +231,7 @@ public class AddPrescription extends AppCompatActivity {
 
     private static int PICK_IMAGE = 123;
     Uri imagepath;
-
+/*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if(requestCode == PICK_IMAGE && resultCode ==RESULT_OK && data.getData() != null){
@@ -239,12 +239,12 @@ public class AddPrescription extends AppCompatActivity {
             imagepath = data.getData();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),imagepath);
-                profile_image.setImageBitmap(bitmap);
+                //profile_image.setImageBitmap(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
-
+*/
 }

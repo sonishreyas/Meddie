@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:layout_marginTop="10dp"
-                android:text="Banking"/>
+                android:text="Doctor"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Check Your Bank Activities"
+                android:text="Show Doctors"
                 android:padding="5dp"
                 android:textColor="@android:color/darker_gray"/>
         </LinearLayout>
@@ -72,7 +72,7 @@
             <ImageView
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:background="@drawable/circlebackgroundpink"
+                android:background="@drawable/circlebackgroundyellow"
                 android:src="@drawable/ic_lightbulb_outline_black_24dp"
                 android:padding="10dp"
                 />
@@ -163,7 +163,7 @@
             <ImageView
                 android:layout_width="64dp"
                 android:layout_height="64dp"
-                android:background="@drawable/circlebackgroundyellow"
+                android:background="@drawable/circlebackgroundpink"
                 android:src="@drawable/ic_attach_file_black_24dp"
                 android:padding="10dp"
                 />
@@ -192,6 +192,7 @@
 
 
     </LinearLayout>
+
     <LinearLayout
         android:clipToPadding="false"
         android:gravity="center"
