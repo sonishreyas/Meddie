@@ -33,7 +33,7 @@
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:background="@drawable/circlebackgroundpurple"
-                android:src="@drawable/ic_attach_money_black_24dp"
+                android:src="@drawable/doctordash"
                 android:padding="10dp"
                 />
             <TextView
@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Show Doctors"
+                android:text="Add Doctors"
                 android:padding="5dp"
                 android:textColor="@android:color/darker_gray"/>
         </LinearLayout>
@@ -73,7 +73,7 @@
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:background="@drawable/circlebackgroundyellow"
-                android:src="@drawable/ic_lightbulb_outline_black_24dp"
+                android:src="@drawable/idea"
                 android:padding="10dp"
                 />
             <TextView
@@ -124,7 +124,7 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:background="@drawable/circlebackgroundgreen"
-                    android:src="@drawable/ic_control_point_black_24dp"
+                    android:src="@drawable/pill"
                     android:padding="10dp"
                     />
                 <TextView
@@ -132,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:layout_marginTop="10dp"
-                    android:text="Add"/>
+                    android:text="Show Doctors"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -164,7 +164,7 @@
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:background="@drawable/circlebackgroundpink"
-                android:src="@drawable/ic_attach_file_black_24dp"
+                android:src="@drawable/dictionary"
                 android:padding="10dp"
                 />
             <TextView
@@ -215,8 +215,8 @@
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:background="@drawable/circlebackgroundpurple"
-                    android:src="@drawable/ic_wifi_black_24dp"
+                    android:background="@android:color/white"
+                    android:src="@drawable/route"
                     android:padding="10dp"
                     />
                 <TextView

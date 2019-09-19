@@ -44,8 +44,8 @@ public class dashboard extends AppCompatActivity implements View.OnClickListener
             case R.id.bank_card : i = new Intent(this,AddDoctorActivity.class); startActivity(i);  break;
             case R.id.ideas_card : i = new Intent(this,AddPrescription.class);startActivity(i) ;break;
             case R.id.add_card : i = new Intent(this,DoctorListActivity.class); startActivity(i);break;
-            case R.id.link_card : openWebPage("https://google.com"); break;
-            case R.id.wificard : i = new Intent(this,AddPrescription.class); startActivity(i);break;
+            case R.id.link_card : openWebPage("https://www.healthline.com/");break;
+            case R.id.wificard : openWebPage("https://www.google.com/maps/search/hospitals+near+me");;break;
             default:break;
 
         }

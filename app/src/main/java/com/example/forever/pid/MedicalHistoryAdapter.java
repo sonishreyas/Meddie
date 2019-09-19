@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.File;
+import java.sql.Blob;
 import java.util.ArrayList;
 
 
@@ -58,7 +59,7 @@ public class MedicalHistoryAdapter extends ArrayAdapter<MedicalHistory>{
         }
 
         String imagePathName = medicalHistories.get(position).getImageName();
-        File imgFile = new  File(imagePathName);
+        File imgFile = new  File(String.valueOf(imagePathName));
 
         if(imgFile.exists()){
 

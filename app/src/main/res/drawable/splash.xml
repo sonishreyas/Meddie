@@ -5,6 +5,7 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/healthcare"/>
+            android:src="@drawable/ic_lightbulb_outline_black_24dp"
+            />
     </item>
 </layer-list>

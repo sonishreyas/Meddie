@@ -1,9 +1,13 @@
 package com.example.forever.pid;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.Blob;
 
 
 public class DoctorDatabaseHelper extends SQLiteOpenHelper {
@@ -66,4 +70,8 @@ public class DoctorDatabaseHelper extends SQLiteOpenHelper {
         db.delete(MEDICAL_HISTORY_TABLE,null,null);
         db.close();
     }
+
+
+
+
 }
