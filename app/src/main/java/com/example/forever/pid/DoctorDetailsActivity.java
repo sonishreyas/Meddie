@@ -93,17 +93,22 @@ public class DoctorDetailsActivity extends AppCompatActivity {
     }*/
 
     public void addPrescription(View view) {
-        startActivity(new Intent(DoctorDetailsActivity.this,AddPrescription.class)
+        /*startActivity(new Intent(DoctorDetailsActivity.this,AddPrescription.class)
 
                 .putExtra("id",rowId)
                 .putExtra("doctorName",docName)
                 .putExtra("docSpecialist",docSpecialist));
+
+         */
+
+        startActivity(new Intent(DoctorDetailsActivity.this,ShowPrescriptionsDemo.class));
+
     }
 
     public void viewPrescription(View view) {
        // medicalHistory.setDoctorId(rowId);
         //doctorDatabaseSource.getDoctorPrescription(rowId);
-        startActivity(new Intent(DoctorDetailsActivity.this,MedicalListActivity.class)
+        startActivity(new Intent(DoctorDetailsActivity.this,DisplayPrescription.class)
         .putExtra("docId",rowId));
     }
 

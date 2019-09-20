@@ -18,10 +18,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:fontFamily="cursive"
+        android:fontFamily="sans-serif"
         android:gravity="center"
-        android:text="Doctor Details Information"
-        android:textColor="#c41ba7"
+        android:text="Doctor Details"
+        android:textColor="@android:color/black"
         android:textSize="30sp" />
     <View
         android:layout_width="match_parent"
@@ -107,19 +107,21 @@
 
     <Button
         style="@style/doctorBtn"
+        android:textColor="@android:color/white"
         android:layout_width="269dp"
         android:layout_margin="10dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/reg_btn_green"
+        android:background="@drawable/reg_btn_style"
         android:onClick="addPrescription"
         android:text="Add Prescription" />
 
     <Button
         style="@style/doctorBtn"
+        android:textColor="@android:color/white"
         android:layout_width="277dp"
         android:layout_height="49dp"
         android:layout_margin="10dp"
-        android:background="@drawable/reg_btn_green"
+        android:background="@drawable/reg_btn_style"
         android:onClick="viewPrescription"
         android:text="View Prescription" />
 

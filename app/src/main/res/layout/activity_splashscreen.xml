@@ -5,15 +5,14 @@
     tools:context=".splashscreen"
     android:orientation="vertical"
     android:layout_width="fill_parent"
+    android:background="@drawable/meddie_logo"
     android:layout_height="fill_parent">
 
     <ImageView android:id="@+id/splashscreen" android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:src="@drawable/adduser"
+        android:src="@drawable/meddie_logo"
         android:layout_gravity="center"/>
 
-    <TextView android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Hello World, splash"/>
+
 
 </LinearLayout>
