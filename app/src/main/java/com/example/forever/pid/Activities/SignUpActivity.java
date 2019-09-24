@@ -1,4 +1,4 @@
-package com.example.forever.pid;
+package com.example.forever.pid.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,6 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.forever.pid.SQL.DoctorDatabaseHelper;
+import com.example.forever.pid.R;
+import com.example.forever.pid.helper.UserAuthentication;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -21,7 +25,7 @@ public class SignUpActivity extends AppCompatActivity {
     private SharedPreferences userPreference;
     private SharedPreferences.Editor editor;
     private UserAuthentication userAuthentication;
-
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,17 +58,21 @@ public class SignUpActivity extends AppCompatActivity {
         }
 
         else {
-            userAuthentication.saveUser(name, email, password);
+            if (emailET.getText().toString().trim().matches(emailPattern)) {
+                userAuthentication.saveUser(name, email, password);
 
-            if (editor.commit() == true) {
-                Toast.makeText(this, "Successful", Toast.LENGTH_SHORT).show();
-               // String dbName = doctorDatabaseHelper.getDatabaseName();
-                //doctorDatabaseHelper.onCreate(sqLiteDatabase);
-                //doctorDatabaseHelper.onUpgrade(sqLiteDatabase db,1,1);
-                doctorDatabaseHelper.clearDatabase();
-                startActivity(new Intent(this, dashboard.class));
-            } else {
-                Toast.makeText(this, "Could not save", Toast.LENGTH_SHORT).show();
+                if (editor.commit() == true) {
+                    Toast.makeText(this, "Successful", Toast.LENGTH_SHORT).show();
+                    // String dbName = doctorDatabaseHelper.getDatabaseName();
+                    //doctorDatabaseHelper.onCreate(sqLiteDatabase);
+                    //doctorDatabaseHelper.onUpgrade(sqLiteDatabase db,1,1);
+                    doctorDatabaseHelper.clearDatabase();
+                    startActivity(new Intent(this, dashboard.class));
+                } else {
+                    Toast.makeText(this, "Could not save", Toast.LENGTH_SHORT).show();
+                }
+            }else {
+                Toast.makeText(getApplicationContext(), "Invalid email address", Toast.LENGTH_SHORT).show();
             }
         }
 

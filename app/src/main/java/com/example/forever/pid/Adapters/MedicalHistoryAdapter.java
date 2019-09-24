@@ -1,4 +1,4 @@
-package com.example.forever.pid;
+package com.example.forever.pid.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +14,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.forever.pid.Activities.ShowPrescriptionActivity;
+import com.example.forever.pid.helper.MedicalHistory;
+import com.example.forever.pid.R;
+
 import java.io.File;
-import java.sql.Blob;
 import java.util.ArrayList;
 
 
@@ -80,7 +83,7 @@ public class MedicalHistoryAdapter extends ArrayAdapter<MedicalHistory>{
                 Bitmap image= holder.medicalImageIV.getDrawingCache();
 
 
-                parent.getContext().startActivity(new Intent(parent.getContext(),ShowPrescriptionActivity.class)
+                parent.getContext().startActivity(new Intent(parent.getContext(), ShowPrescriptionActivity.class)
                 .putExtra("MH_id",rowId)
                 .putExtra("prescriptionImage",image));
             }

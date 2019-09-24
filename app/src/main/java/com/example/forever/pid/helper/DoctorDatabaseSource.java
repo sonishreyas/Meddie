@@ -1,9 +1,11 @@
-package com.example.forever.pid;
+package com.example.forever.pid.helper;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.forever.pid.SQL.DoctorDatabaseHelper;
 
 import java.util.ArrayList;
 

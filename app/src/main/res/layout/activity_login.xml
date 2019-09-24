@@ -9,7 +9,7 @@
     android:background="#ffffff"
 
 
-    tools:context="com.example.forever.pid.LoginActivity"
+    tools:context="com.example.forever.pid.Activities.LoginActivity"
 
     >
 

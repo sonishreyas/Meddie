@@ -1,4 +1,4 @@
-package com.example.forever.pid;
+package com.example.forever.pid.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+
+import com.example.forever.pid.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 

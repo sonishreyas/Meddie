@@ -1,4 +1,4 @@
-package com.example.forever.pid;
+package com.example.forever.pid.Activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,6 +12,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.forever.pid.helper.Doctor;
+import com.example.forever.pid.helper.DoctorDatabaseSource;
+import com.example.forever.pid.helper.MedicalHistory;
+import com.example.forever.pid.R;
+
 public class DoctorDetailsActivity extends AppCompatActivity {
 
     private TextView docNameTV, docSpecialistTV, docApointTV, docPhoneTV, docEmailTV;
@@ -22,7 +27,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
     private String docName,docSpecialist,docApoint,doctorPhone,doctorEmail;
 
     private int rowId;
-    private DoctorDatabaseSource  doctorDatabaseSource;
+    private DoctorDatabaseSource doctorDatabaseSource;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,14 +106,14 @@ public class DoctorDetailsActivity extends AppCompatActivity {
 
          */
 
-        startActivity(new Intent(DoctorDetailsActivity.this,ShowPrescriptionsDemo.class));
+        startActivity(new Intent(DoctorDetailsActivity.this, ShowPrescriptionsDemo.class));
 
     }
 
     public void viewPrescription(View view) {
        // medicalHistory.setDoctorId(rowId);
         //doctorDatabaseSource.getDoctorPrescription(rowId);
-        startActivity(new Intent(DoctorDetailsActivity.this,DisplayPrescription.class)
+        startActivity(new Intent(DoctorDetailsActivity.this, DisplayPrescription.class)
         .putExtra("docId",rowId));
     }
 

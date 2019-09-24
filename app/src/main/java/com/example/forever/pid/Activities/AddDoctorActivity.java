@@ -1,17 +1,35 @@
-package com.example.forever.pid;
+package com.example.forever.pid.Activities;
 
-//import android.icu.util.Calendar;
-import androidx.annotation.RequiresApi;
+import android.app.DatePickerDialog;
+import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.Toast;
 
-//@RequiresApi(api = Build.VERSION_CODES.N)
-public class MainActivity extends AppCompatActivity {
-   /* private EditText nameET;
+import com.example.forever.pid.helper.Doctor;
+import com.example.forever.pid.helper.DoctorDatabaseSource;
+import com.example.forever.pid.R;
+
+import java.util.Calendar;
+import java.util.Locale;
+
+public class AddDoctorActivity extends AppCompatActivity {
+
+    private EditText nameET;
     private EditText detailsET;
+    //private EditText appoinmentET;
     private Button appoinmentET;
     private int year,month,day;
     private Calendar calendar;
+//    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
     private EditText phoneET;
     private EditText emailET;
     private Button btnAdd;
@@ -21,13 +39,13 @@ public class MainActivity extends AppCompatActivity {
 
     //for get intent variable
     private String docName,docSpecialist,docApoint,doctorPhone,doctorEmail;
-    private  int rowId ;*/
-
+    private  int rowId ;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-      /*  nameET        = (EditText) findViewById(R.id.doctorName);
+        setContentView(R.layout.activity_add_doctor);
+        nameET        = (EditText) findViewById(R.id.doctorName);
         detailsET     = (EditText) findViewById(R.id.doctorDetails);
         appoinmentET  = (Button) findViewById(R.id.doctorAppoinment);
         phoneET       = (EditText) findViewById(R.id.doctorPhone);
@@ -50,29 +68,37 @@ public class MainActivity extends AppCompatActivity {
         rowId           = getIntent().getIntExtra("id",0);
 
         //set for data update
-        nameET.setText(docName);
-        detailsET.setText(docSpecialist);
-        appoinmentET.setText(docApoint);
-        phoneET.setText(doctorPhone);
-        emailET.setText(doctorEmail);
         if(rowId > 0){
+            nameET.setText(docName);
+            detailsET.setText(docSpecialist);
+            appoinmentET.setText(docApoint);
+            phoneET.setText(doctorPhone);
+            emailET.setText(doctorEmail);
             btnAdd.setText("Update");
-        }*/
+        }
     }
 
-   /* @Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.only_logout, menu);
+        inflater.inflate(R.menu.home_logout, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent loginscreen=new Intent(this,LoginActivity.class);
-        loginscreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(loginscreen);
-        this.finish();
+        switch (item.getItemId()){
+            case R.id.home:
+                startActivity(new Intent(AddDoctorActivity.this,DoctorListActivity.class));
+                break;
+            case R.id.logout:
+                Intent loginscreen=new Intent(this,LoginActivity.class);
+                loginscreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(loginscreen);
+                this.finish();
+                break;
+
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -100,29 +126,35 @@ public class MainActivity extends AppCompatActivity {
         if(email.isEmpty()){
             emailET.setError("This field must not be Empty !");
         }else{
-            // it condition for update
-            if(rowId > 0){
-                doctor =   new Doctor(name,details,appointment,phone,email);
-                boolean status  = doctorDatabaseSource.editDoctor(doctor,rowId);
-                if(status){
-                    Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this,DoctorListActivity.class));
-                }else{
-                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
-                }
+            if (emailET.getText().toString().trim().matches(emailPattern)) {
+                if(rowId > 0){
+                    doctor =   new Doctor(name,details,appointment,phone,email);
+                    boolean status  = doctorDatabaseSource.editDoctor(doctor,rowId);
+                    if(status){
+                        Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(AddDoctorActivity.this,DoctorListActivity.class));
+                    }else{
+                        Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+                    }
 
-            }else{            //it condition for add
-                doctor =   new Doctor(name,details,appointment,phone,email);
-                boolean status  =   doctorDatabaseSource.addDoctorInfo(doctor);
-                if(status){
-                    Toast.makeText(this, "Successfull", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this,DoctorListActivity.class));
-                }else{
-                    Toast.makeText(this, "Could not save", Toast.LENGTH_SHORT).show();
+                }else{            //it condition for add
+                    doctor =   new Doctor(name,details,appointment,phone,email);
+                    boolean status  =   doctorDatabaseSource.addDoctorInfo(doctor);
+                    if(status){
+                        Toast.makeText(this, "Successfull", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(AddDoctorActivity.this,DoctorListActivity.class));
+                    }else{
+                        Toast.makeText(this, "Could not save", Toast.LENGTH_SHORT).show();
+                    }
                 }
+            }else {
+                Toast.makeText(getApplicationContext(),"Invalid email address", Toast.LENGTH_SHORT).show();
+            }
+
+
             }
         }
-    }
+
 
     public void showDate(View view) {
         DatePickerDialog dpd    =   new DatePickerDialog(this,dateListner,year,month,day);
@@ -133,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
             // Toast.makeText(MainActivity.this, "year:"+year, Toast.LENGTH_SHORT).show();
-            appoinmentET.setText(dayOfMonth+"-"+month+"-"+year);
+            appoinmentET.setText(dayOfMonth+"-"+(month+1)+"-"+year);
         }
-    };*/
+    };
 }

@@ -1,12 +1,13 @@
-package com.example.forever.pid;
+package com.example.forever.pid.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.forever.pid.R;
+
 public class splashscreen extends AppCompatActivity {
 
 
@@ -22,7 +23,7 @@ public class splashscreen extends AppCompatActivity {
             @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
-                Intent mainIntent = new Intent(splashscreen.this,dashboard.class);
+                Intent mainIntent = new Intent(splashscreen.this, dashboard.class);
                 splashscreen.this.startActivity(mainIntent);
                 splashscreen.this.finish();
             }

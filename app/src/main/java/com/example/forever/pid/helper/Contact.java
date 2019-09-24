@@ -1,8 +1,6 @@
-package com.example.forever.pid;
+package com.example.forever.pid.helper;
 
-/**
- * Visit website http://www.whats-online.info
- * **/
+
 
 public class Contact {
 
@@ -33,32 +31,31 @@ public class Contact {
 
     }
 
-    // getting ID
+
     public int getID(){
         return this._id;
     }
 
-    // setting id
     public void setID(int id){
         this._id = id;
     }
 
-    // getting first name
+
     public String getFName(){
         return this._fname;
     }
 
-    // setting first name
+
     public void setFName(String fname){
         this._fname = fname;
     }
 
-    //getting profile pic
+
     public byte[] getImage(){
         return this._img;
     }
 
-    //setting profile pic
+
 
     public void setImage(byte[] b){
         this._img=b;

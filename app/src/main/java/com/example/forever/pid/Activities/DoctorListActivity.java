@@ -1,4 +1,4 @@
-package com.example.forever.pid;
+package com.example.forever.pid.Activities;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.forever.pid.helper.Doctor;
+import com.example.forever.pid.Adapters.DoctorAdapter;
+import com.example.forever.pid.helper.DoctorDatabaseSource;
+import com.example.forever.pid.R;
 
 import java.util.ArrayList;
 

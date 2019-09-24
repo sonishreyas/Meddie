@@ -1,10 +1,12 @@
-package com.example.forever.pid;
+package com.example.forever.pid.SQL;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.forever.pid.helper.Contact;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,9 +54,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    /**
-     * All CRUD(Create, Read, Update, Delete) Operations
-     */
+
 
     //Insert values to the table contacts
     public void addContacts(Contact contact){
@@ -70,9 +70,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
-    /**
-     *Getting All Contacts
-     **/
+
 
     public List<Contact> getAllContacts() {
         List<Contact> contactList = new ArrayList<Contact>();
@@ -101,9 +99,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
-    /**
-     *Updating single contact
-     **/
+
 
     public int updateContact(Contact contact, int id) {
         SQLiteDatabase db = this.getWritableDatabase();

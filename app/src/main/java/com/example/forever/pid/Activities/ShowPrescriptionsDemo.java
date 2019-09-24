@@ -1,4 +1,4 @@
-package com.example.forever.pid;
+package com.example.forever.pid.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,11 +16,15 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.forever.pid.Adapters.dataAdapter;
+import com.example.forever.pid.helper.Contact;
+import com.example.forever.pid.R;
+import com.example.forever.pid.SQL.DatabaseHandler;
+
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
-public class DisplayPrescription extends AppCompatActivity {
-
+public class ShowPrescriptionsDemo extends AppCompatActivity {
     private EditText fname;
     private ImageView pic;
     private DatabaseHandler db;
@@ -31,11 +35,11 @@ public class DisplayPrescription extends AppCompatActivity {
     private Bitmap bp;
     private byte[] photo;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_prescription);
-
+        setContentView(R.layout.activity_show_prescriptions_demo);
 
         //Instantiate database handler
         db=new DatabaseHandler(this);
@@ -43,7 +47,6 @@ public class DisplayPrescription extends AppCompatActivity {
         lv = (ListView) findViewById(R.id.list1);
         pic= (ImageView) findViewById(R.id.pic);
         fname=(EditText) findViewById(R.id.txt1);
-
 
 
 
@@ -158,6 +161,7 @@ public class DisplayPrescription extends AppCompatActivity {
 
         db.addContacts(new Contact(f_name, photo));
         Toast.makeText(getApplicationContext(),"Saved successfully", Toast.LENGTH_LONG).show();
+        startActivity(new Intent(ShowPrescriptionsDemo.this, dashboard.class));
     }
 
     //Retrieve data from the database and set to the list view
@@ -177,5 +181,4 @@ public class DisplayPrescription extends AppCompatActivity {
             }
         });
     }
-
 }

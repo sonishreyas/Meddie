@@ -1,4 +1,4 @@
-package com.example.forever.pid;
+package com.example.forever.pid.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.forever.pid.R;
+import com.example.forever.pid.helper.UserAuthentication;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -32,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void goSignUp(View view) {
-        Intent intent = new Intent(this,SignUpActivity.class);
+        Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }
 
@@ -53,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
             if (userEmail.equals(savedEmail) && userPass.equals(savedPass)) {
 
                 //Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(LoginActivity.this,dashboard.class));
+                startActivity(new Intent(LoginActivity.this, dashboard.class));
                 //startActivity(new Intent(LoginActivity.this, DoctorListActivity.class));
             } else {
                 Toast.makeText(this, "Couldn't find you !!!", Toast.LENGTH_SHORT).show();

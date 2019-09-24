@@ -1,17 +1,12 @@
-package com.example.forever.pid;
+package com.example.forever.pid.Activities;
 
 import android.app.DatePickerDialog;
-import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Menu;
@@ -28,10 +23,12 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.forever.pid.helper.DoctorDatabaseSource;
+import com.example.forever.pid.helper.MedicalHistory;
+import com.example.forever.pid.R;
+
 import java.io.File;
-import java.io.IOException;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 //import android.icu.util.Calendar;
@@ -136,10 +133,10 @@ public class AddPrescription extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.home:
-                startActivity(new Intent(AddPrescription.this,DoctorListActivity.class));
+                startActivity(new Intent(AddPrescription.this, DoctorListActivity.class));
                 break;
             case R.id.logout:
-                Intent loginscreen=new Intent(this,LoginActivity.class);
+                Intent loginscreen=new Intent(this, LoginActivity.class);
                 loginscreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(loginscreen);
                 this.finish();
@@ -220,7 +217,7 @@ public class AddPrescription extends AppCompatActivity {
             if(status){
                 Toast.makeText(this, "Successfull", Toast.LENGTH_SHORT).show();
                 this.finish();
-                startActivity(new Intent(AddPrescription.this,MedicalListActivity.class)
+                startActivity(new Intent(AddPrescription.this, MedicalListActivity.class)
                         .putExtra("docId",rowId));
             }else{
                 Toast.makeText(this, "Could not save", Toast.LENGTH_SHORT).show();

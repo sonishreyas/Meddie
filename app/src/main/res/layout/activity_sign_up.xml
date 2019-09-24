@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="#ffffff"
-    tools:context="com.example.forever.pid.SignUpActivity">
+    tools:context="com.example.forever.pid.Activities.SignUpActivity">
 
     <ImageView
         android:layout_width="100dp"

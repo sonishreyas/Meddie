@@ -9,28 +9,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DisplayPrescription"></activity>
-        <activity android:name=".ShowPrescriptionsDemo" />
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".Activities.DisplayPrescription"></activity>
+        <activity android:name=".Activities.ShowPrescriptionsDemo" />
+        <activity android:name=".Activities.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".splashscreen" />
-        <activity android:name=".dashboard" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".DoctorListActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".DoctorDetailsActivity" />
-        <activity android:name=".AddPrescription" />
-        <activity android:name=".MedicalListActivity" />
+        <activity android:name=".Activities.splashscreen" />
+        <activity android:name=".Activities.dashboard" />
+        <activity android:name=".Activities.MainActivity" />
+        <activity android:name=".Activities.DoctorListActivity" />
+        <activity android:name=".Activities.LoginActivity" />
+        <activity android:name=".Activities.SignUpActivity" />
+        <activity android:name=".Activities.DoctorDetailsActivity" />
+        <activity android:name=".Activities.AddPrescription" />
+        <activity android:name=".Activities.MedicalListActivity" />
         <activity
-            android:name=".AddDoctorActivity"
+            android:name=".Activities.AddDoctorActivity"
             android:noHistory="true" />
-        <activity android:name=".ShowPrescriptionActivity" />
+        <activity android:name=".Activities.ShowPrescriptionActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

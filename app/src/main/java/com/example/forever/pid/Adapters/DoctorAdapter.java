@@ -1,4 +1,4 @@
-package com.example.forever.pid;
+package com.example.forever.pid.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.forever.pid.Activities.DoctorDetailsActivity;
+import com.example.forever.pid.helper.Doctor;
+import com.example.forever.pid.R;
 
 import java.util.ArrayList;
 
@@ -67,7 +71,7 @@ public class DoctorAdapter extends ArrayAdapter<Doctor>{
                 String docEmail     = holder.emailTV.getText().toString();
 
 
-                parent.getContext().startActivity(new Intent(parent.getContext(),DoctorDetailsActivity.class)
+                parent.getContext().startActivity(new Intent(parent.getContext(), DoctorDetailsActivity.class)
                 .putExtra("id",rowId)
                 .putExtra("doctorName",docName)
                 .putExtra("doctorPhone",docPhone)

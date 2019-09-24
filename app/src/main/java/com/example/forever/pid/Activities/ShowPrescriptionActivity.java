@@ -1,4 +1,4 @@
-package com.example.forever.pid;
+package com.example.forever.pid.Activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,6 +11,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.example.forever.pid.helper.DoctorDatabaseSource;
+import com.example.forever.pid.R;
 
 public class ShowPrescriptionActivity extends AppCompatActivity {
     private ImageView showImageIV;

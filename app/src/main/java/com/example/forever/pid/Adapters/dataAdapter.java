@@ -1,4 +1,4 @@
-package com.example.forever.pid;
+package com.example.forever.pid.Adapters;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,11 +10,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.forever.pid.helper.Contact;
+import com.example.forever.pid.R;
+
 import java.util.ArrayList;
 
-/**
- * Visit website http://www.whats-online.info
- * **/
+
 
 public class dataAdapter extends ArrayAdapter<Contact>{
 
