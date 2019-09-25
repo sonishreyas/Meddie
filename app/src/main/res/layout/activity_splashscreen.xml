@@ -8,7 +8,9 @@
     android:background="@drawable/meddie_logo"
     android:layout_height="fill_parent">
 
-    <ImageView android:id="@+id/splashscreen" android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/splashscreen"
+        android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:src="@drawable/meddie_logo"
         android:layout_gravity="center"/>

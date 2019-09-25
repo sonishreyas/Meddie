@@ -9,7 +9,7 @@
     android:paddingRight="40dp"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context="com.example.forever.pid.Activities.MainActivity"
+    tools:context="com.example.forever.meddie.Activities.AddDoctorActivity"
     android:background="#ffffff">
 
     <TextView

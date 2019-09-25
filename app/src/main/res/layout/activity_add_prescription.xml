@@ -10,7 +10,7 @@
     android:paddingRight="40dp"
     android:gravity="center"
     android:background="#ffffff"
-    tools:context="com.example.forever.pid.Activities.AddPrescription">
+    tools:context="com.example.forever.meddie.Activities.AddPrescription">
 
     <TextView
         android:id="@+id/add_presTv"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +8,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="#ffffff"
-    tools:context="com.example.forever.meddie.Activities.SignUpActivity">
+    tools:context="com.example.forever.meddie.Activities.RegisterFireActivity">
 
     <ImageView
         android:layout_width="100dp"
@@ -53,8 +54,16 @@
         style="@style/loginBtn"
         android:layout_width="201dp"
         android:layout_margin="10dp"
-        android:onClick="saveUser"
         android:text="Sign UP"
         android:textSize="18sp" />
 
+    <Button
+        android:background="@drawable/reg_btn_style"
+        android:id="@+id/Loginbtn"
+        style="@style/loginBtn"
+        android:layout_width="201dp"
+        android:layout_margin="10dp"
+
+        android:text="LOGIN"
+        android:textSize="18sp" />
 </LinearLayout>

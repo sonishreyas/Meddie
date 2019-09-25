@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#95dbf1"
     android:orientation="vertical"
-    tools:context="com.example.forever.pid.Activities.ShowPrescriptionActivity">
+    tools:context="com.example.forever.meddie.Activities.ShowPrescriptionActivity">
 
     <ImageView
         android:id="@+id/showPrescription"
