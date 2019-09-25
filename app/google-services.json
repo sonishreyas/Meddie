@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "145575268464",
+    "firebase_url": "https://meddi-be061.firebaseio.com",
+    "project_id": "meddi-be061",
+    "storage_bucket": "meddi-be061.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:145575268464:android:cda5f9a34b40b839d6e4b5",
+        "android_client_info": {
+          "package_name": "com.example.forever.meddie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "145575268464-tk5pmu52sl48pfecc5u54j0adjrc301l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaPIQfe2GmzQ6TuDFtgA8cdiLjtBm0POA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "145575268464-tk5pmu52sl48pfecc5u54j0adjrc301l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
