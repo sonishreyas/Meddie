@@ -8,6 +8,7 @@ public class Contact {
     int _id;
     String _fname;
     byte[] _img;
+    String _mail;
 
 
 
@@ -16,18 +17,20 @@ public class Contact {
 
     }
     // constructor
-    public Contact(int id, String fname, byte[] img){
+    public Contact(int id, String fname, byte[] img , String mail){
         this._id = id;
         this._fname = fname;
         this._img = img;
+        this._mail = mail;
 
     }
 
     // constructor
-    public Contact(String fname, byte[] img){
+    public Contact(String fname, byte[] img , String mail){
 
         this._fname = fname;
         this._img = img;
+        this._mail = mail;
 
     }
 
@@ -48,6 +51,12 @@ public class Contact {
 
     public void setFName(String fname){
         this._fname = fname;
+    }
+
+    public String getMail() { return this._mail;}
+
+    public void setMail(String mail){
+        this._mail = mail;
     }
 
 

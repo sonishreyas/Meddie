@@ -35,6 +35,7 @@ public class DisplayPrescription extends AppCompatActivity {
     private Contact dataModel;
     private Bitmap bp;
     private byte[] photo;
+    private String iMail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

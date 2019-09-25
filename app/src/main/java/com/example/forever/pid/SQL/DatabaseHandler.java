@@ -27,6 +27,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String KEY_ID = "id";
     private static final String KEY_FNAME = "fname";
     private static final String KEY_POTO = "poto";
+    private static final String KEY_EMAIL = "mail";
 
 
     public DatabaseHandler(Context context) {
@@ -39,7 +40,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
        String CREATE_TABLE_CONTACTS="CREATE TABLE " + TABLE_CONTACTS + "("
                + KEY_ID +" INTEGER PRIMARY KEY,"
                + KEY_FNAME +" TEXT,"
-               + KEY_POTO  +" BLOB" + ")";
+               + KEY_POTO  +" BLOB," + KEY_EMAIL + " TEXT)";
         db.execSQL(CREATE_TABLE_CONTACTS);
     }
 
@@ -63,6 +64,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         values.put(KEY_FNAME, contact.getFName());
         values.put(KEY_POTO, contact.getImage() );
+        values.put(KEY_EMAIL, contact.getMail());
 
 
         db.insert(TABLE_CONTACTS, null, values);
@@ -87,6 +89,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 contact.setID(Integer.parseInt(cursor.getString(0)));
                 contact.setFName(cursor.getString(1));
                 contact.setImage(cursor.getBlob(2));
+                contact.setMail(cursor.getString(3));
+
 
 
                 // Adding contact to list
