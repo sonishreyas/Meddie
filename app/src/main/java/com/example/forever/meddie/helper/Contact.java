@@ -7,8 +7,8 @@ public class Contact {
     //private variables
     int _id;
     String _fname;
+    String email;
     byte[] _img;
-    String _mail;
 
 
 
@@ -17,23 +17,25 @@ public class Contact {
 
     }
     // constructor
-    public Contact(int id, String fname, byte[] img , String mail){
-        this._id = id;
+    public Contact( String fname, byte[] img,String email){
+
         this._fname = fname;
         this._img = img;
-        this._mail = mail;
+        this.email=email;
 
     }
 
     // constructor
-    public Contact(String fname, byte[] img , String mail){
+    public Contact(String fname, byte[] img){
 
         this._fname = fname;
         this._img = img;
-        this._mail = mail;
 
     }
 
+    public void setEmail(String email){ this.email = email;}
+
+    public String getEmail(){return this.email;}
 
     public int getID(){
         return this._id;
@@ -51,12 +53,6 @@ public class Contact {
 
     public void setFName(String fname){
         this._fname = fname;
-    }
-
-    public String getMail() { return this._mail;}
-
-    public void setMail(String mail){
-        this._mail = mail;
     }
 
 

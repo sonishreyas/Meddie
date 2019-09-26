@@ -21,6 +21,7 @@ tools:context=".Activities.ShowPrescriptionsDemo">
         android:layout_height="70dp"
         android:id="@+id/txt1"
         android:hint="Enter Presciption Keywords"
+        android:gravity="center"
         android:layout_margin="10dp"/>
 
     <LinearLayout
@@ -33,7 +34,7 @@ tools:context=".Activities.ShowPrescriptionsDemo">
     android:layout_height="300dp"
     android:onClick="buttonClicked"
     android:id="@+id/pic"
-    app:srcCompat="@drawable/doctorlogo"/>
+    app:srcCompat="@drawable/addimageicon"/>
 
 
 </LinearLayout>

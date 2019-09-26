@@ -24,7 +24,7 @@ public class DoctorDetailsActivity extends AppCompatActivity {
     private Doctor doctor;
     private MedicalHistory medicalHistory;
     private FirebaseAuth firebaseAuth;
-
+    String email_id;
     //for get intent variable
     private String docName,docSpecialist,docApoint,doctorPhone,doctorEmail;
 
@@ -50,12 +50,15 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         docPhoneTV      = (TextView) findViewById(R.id.showPhone);
         docEmailTV      = (TextView) findViewById(R.id.showEmail);
 
+        email_id = getIntent().getStringExtra("email");
+
         docNameTV.setText(docName);
         docSpecialistTV.setText(docSpecialist);
         docApointTV.setText(docApoint);
         docPhoneTV.setText(doctorPhone);
         docEmailTV.setText(doctorEmail);
-        firebaseAuth.getInstance();
+
+        Toast.makeText(this,email_id,Toast.LENGTH_SHORT).show();
 
     }
 
@@ -108,15 +111,18 @@ public class DoctorDetailsActivity extends AppCompatActivity {
 
          */
 
-        startActivity(new Intent(DoctorDetailsActivity.this, ShowPrescriptionsDemo.class));
+        startActivity(new Intent(DoctorDetailsActivity.this, ShowPrescriptionsDemo.class).putExtra("email",email_id));
 
     }
 
     public void viewPrescription(View view) {
        // medicalHistory.setDoctorId(rowId);
         //doctorDatabaseSource.getDoctorPrescription(rowId);
-        startActivity(new Intent(DoctorDetailsActivity.this, DisplayPrescription.class)
-        .putExtra("docId",rowId));
+        //startActivity(new Intent(DoctorDetailsActivity.this, DisplayPrescription.class)
+       //.putExtra("docId",rowId));
+        Intent i = new Intent(this, DisplayPrescription.class);
+        i.putExtra("email",email_id);
+        startActivity(i);
     }
 
     @Override
@@ -156,8 +162,8 @@ public class DoctorDetailsActivity extends AppCompatActivity {
                 alert.show();
                 break;
             case R.id.logout:
-
-                firebaseAuth.signOut();
+               // firebaseAuth.getInstance();
+               // firebaseAuth.signOut();
                 finish();
                 startActivity(new Intent(DoctorDetailsActivity.this, LoginFireActivity.class));
 

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.forever.meddie.Activities.DoctorDetailsActivity;
 import com.example.forever.meddie.helper.Doctor;
@@ -22,10 +23,12 @@ import java.util.ArrayList;
 public class DoctorAdapter extends ArrayAdapter<Doctor>{
     private Context context;
     private ArrayList<Doctor> doctorAdapters;
-    public DoctorAdapter(@NonNull Context context, ArrayList<Doctor> doctorAdapters) {
+    String email_id ;
+    public DoctorAdapter(@NonNull Context context, ArrayList<Doctor> doctorAdapters,String email_id) {
         super(context, R.layout.row_layout, doctorAdapters);
         this.context    =   context;
         this.doctorAdapters = doctorAdapters;
+        this.email_id=email_id;
     }
 
     class ViewHolder{
@@ -70,14 +73,14 @@ public class DoctorAdapter extends ArrayAdapter<Doctor>{
                 String docPhone     = holder.phoneTV.getText().toString();
                 String docEmail     = holder.emailTV.getText().toString();
 
-
                 parent.getContext().startActivity(new Intent(parent.getContext(), DoctorDetailsActivity.class)
                 .putExtra("id",rowId)
                 .putExtra("doctorName",docName)
                 .putExtra("doctorPhone",docPhone)
                 .putExtra("doctorEmail",docEmail)
                 .putExtra("doctorApoint",docApoint)
-                .putExtra("docSpecialist",docSpecialist));
+                .putExtra("docSpecialist",docSpecialist).putExtra("email",email_id)
+                );
                 /*convertView.startActivity(new Intent(DoctorAdapter.this,DoctorDetailsActivity.class)
                         .putExtra("doctorObj",doctors));*/
             }

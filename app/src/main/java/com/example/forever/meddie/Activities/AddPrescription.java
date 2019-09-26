@@ -94,7 +94,7 @@ public class AddPrescription extends AppCompatActivity {
         docName = getIntent().getStringExtra("doctorName");
         docSpecialist = getIntent().getStringExtra("docSpecialist");
         rowId = getIntent().getIntExtra("id", 0);
-        firebaseAuth.getInstance();
+        //firebaseAuth.getInstance();
         //set for data update
         doctorNameET.setText(docName);
         doctorDeatilsET.setText(docSpecialist);

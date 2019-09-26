@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.forever.meddie.helper.Doctor;
 import com.example.forever.meddie.helper.DoctorDatabaseSource;
 import com.example.forever.meddie.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -28,6 +29,8 @@ public class AddDoctorActivity extends AppCompatActivity {
     private Button appoinmentET;
     private int year,month,day;
     private Calendar calendar;
+
+    private String email_id ;
 //    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     private EditText phoneET;
@@ -76,6 +79,11 @@ public class AddDoctorActivity extends AppCompatActivity {
             emailET.setText(doctorEmail);
             btnAdd.setText("Update");
         }
+
+        Intent intent = getIntent();
+        email_id = intent.getStringExtra("email");
+        Toast.makeText(getApplicationContext(), email_id, Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
@@ -92,9 +100,11 @@ public class AddDoctorActivity extends AppCompatActivity {
                 startActivity(new Intent(AddDoctorActivity.this,DoctorListActivity.class));
                 break;
             case R.id.logout:
-                Intent loginscreen=new Intent(this,LoginFireActivity.class);
-                loginscreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(loginscreen);
+                //Intent loginscreen=new Intent(this,LoginFireActivity.class);
+                //loginscreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                //startActivity(loginscreen);
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(this,LoginFireActivity.class));
                 this.finish();
                 break;
 
@@ -131,11 +141,14 @@ public class AddDoctorActivity extends AppCompatActivity {
                     doctor =   new Doctor(name,details,appointment,phone,email);
                     boolean status  = doctorDatabaseSource.editDoctor(doctor,rowId);
                     if(status){
+                        Intent i = new Intent(this, DoctorListActivity.class);
+                        i.putExtra("email",email_id);
+                        startActivity(i);
                         Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(AddDoctorActivity.this,DoctorListActivity.class));
+                        // startActivity(new Intent(AddDoctorActivity.this,DoctorListActivity.class));
                     }else{
-                        Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
-                    }
+                Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show();
+            }
 
                 }else{            //it condition for add
                     doctor =   new Doctor(name,details,appointment,phone,email);

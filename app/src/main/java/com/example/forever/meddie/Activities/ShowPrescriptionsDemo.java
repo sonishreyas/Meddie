@@ -34,6 +34,7 @@ public class ShowPrescriptionsDemo extends AppCompatActivity {
     private Contact dataModel;
     private Bitmap bp;
     private byte[] photo;
+    String email_id ;
 
 
     @Override
@@ -48,6 +49,9 @@ public class ShowPrescriptionsDemo extends AppCompatActivity {
         pic= (ImageView) findViewById(R.id.pic);
         fname=(EditText) findViewById(R.id.txt1);
 
+        email_id = getIntent().getStringExtra("email");
+
+        Toast.makeText(this,email_id,Toast.LENGTH_SHORT).show();
 
 
     }
@@ -159,9 +163,12 @@ public class ShowPrescriptionsDemo extends AppCompatActivity {
     private void addContact(){
         getValues();
 
-        db.addContacts(new Contact(f_name, photo));
+        db.addContacts(new Contact(f_name, photo,email_id));
         Toast.makeText(getApplicationContext(),"Saved successfully", Toast.LENGTH_LONG).show();
-        startActivity(new Intent(ShowPrescriptionsDemo.this, dashboard.class));
+        Intent i = new Intent(this, dashboard.class);
+        i.putExtra("email",email_id);
+        startActivity(i);
+
     }
 
     //Retrieve data from the database and set to the list view

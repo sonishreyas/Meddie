@@ -43,6 +43,7 @@ public class DisplayPrescription extends AppCompatActivity {
         setContentView(R.layout.activity_display_prescription);
 
 
+
         //Instantiate database handler
         db=new DatabaseHandler(this);
 
@@ -50,35 +51,10 @@ public class DisplayPrescription extends AppCompatActivity {
         pic= (ImageView) findViewById(R.id.pic);
         fname=(EditText) findViewById(R.id.txt1);
 
+        this.ShowRecords();
 
 
 
-    }
-
-
-    public void buttonClicked(View v){
-        int id=v.getId();
-
-        switch(id){
-
-            case R.id.save:
-
-                if(fname.getText().toString().trim().equals("")){
-                    Toast.makeText(getApplicationContext(),"Name edit text is empty, Enter name", Toast.LENGTH_LONG).show();
-                }  else{
-                    addContact();
-                }
-
-                break;
-
-            case R.id.display:
-
-                ShowRecords();
-                break;
-            case R.id.pic:
-                selectImage();
-                break;
-        }
     }
 
     public void selectImage(){

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.forever.meddie.R;
+import com.example.forever.meddie.helper.Contact;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -21,8 +22,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterFireActivity extends AppCompatActivity {
 
-    private EditText userName , userPassword , userEmail ;
-
+    public EditText userName , userPassword , userEmail ;
+    Contact contact;
     private Button regButton ;
     private Button userLogin ;
 
@@ -89,6 +90,7 @@ public class RegisterFireActivity extends AppCompatActivity {
         if( name.isEmpty() || password.isEmpty() || email.isEmpty() ){
             Toast.makeText(this,"Please Enter All The Deatils",Toast.LENGTH_LONG).show();
         }else{
+            //contact.setEmail(email);
             return true;
         }
 

@@ -18,6 +18,7 @@ public class LoginActivity extends AppCompatActivity {
     private SharedPreferences userPreference;
     private SharedPreferences.Editor editor;
     private UserAuthentication userAuthentication;
+    String email_id ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

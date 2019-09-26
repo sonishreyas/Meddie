@@ -18,13 +18,15 @@ public class DoctorDatabaseHelper extends SQLiteOpenHelper {
     public static final String DOC_APNMT_DATE = "apnmt_date";
     public static final String DOC_PHONE = "phone";
     public static final String DOC_EMAIL= "email";
+    public static final String USER_EMAIL = "useremail";
     public static final String CREATE_DOCTOR_TABLE = "create table " +DOCTOR_INFO_TABLE+"("+
             DOC_ID+" integer primary key, "+
             DOC_NAME+" text, "+
             DOC_DETAILS+" text, "+
             DOC_APNMT_DATE+" text, "+
             DOC_PHONE+" text, "+
-            DOC_EMAIL+" text);";
+            DOC_EMAIL+" text, "+
+            USER_EMAIL+" text "+");";
 
     public static final String MEDICAL_HISTORY_TABLE = "history_table";
     public static final String MH_ID = "mh_id";

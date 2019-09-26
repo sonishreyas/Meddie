@@ -9,11 +9,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.forever.meddie.helper.Doctor;
 import com.example.forever.meddie.Adapters.DoctorAdapter;
 import com.example.forever.meddie.helper.DoctorDatabaseSource;
 import com.example.forever.meddie.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -23,6 +25,7 @@ public class DoctorListActivity extends AppCompatActivity {
     private DoctorAdapter doctorAdapter;
     private ArrayList<Doctor> doctors;
     private DoctorDatabaseSource doctorDatabaseSource;
+    String email_id ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +36,13 @@ public class DoctorListActivity extends AppCompatActivity {
         mListView = (ListView) findViewById(R.id.doctorList);
         mListView.setEmptyView(emptyText);
         doctorDatabaseSource = new DoctorDatabaseSource(this);
-        doctors = doctorDatabaseSource.getAllDoctor();
+        doctors = doctorDatabaseSource.getAllDoctor(FirebaseAuth.getInstance().getCurrentUser().getEmail());
 
-        doctorAdapter = new DoctorAdapter(this, doctors);
+        Intent intent = getIntent();
+        email_id = intent.getStringExtra("email");
+       Toast.makeText(getApplicationContext(), email_id, Toast.LENGTH_SHORT).show();
+
+        doctorAdapter = new DoctorAdapter(this, doctors,email_id);
         mListView.setAdapter(doctorAdapter);
         /*mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -56,14 +63,20 @@ public class DoctorListActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent loginscreen=new Intent(this,LoginActivity.class);
-        loginscreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(loginscreen);
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(this,LoginFireActivity.class));
         this.finish();
+        /*Intent loginscreen=new Intent(this,LoginActivity.class);
+        loginscreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        loginscreen.putExtra("email",email_id);
+        startActivity(loginscreen);
+        this.finish();*/
         return super.onOptionsItemSelected(item);
     }
 
     public void goAddDoctor(View view) {
-        startActivity(new Intent(DoctorListActivity.this,AddDoctorActivity.class));
+        Intent i = new Intent(this, AddDoctorActivity.class);
+        i.putExtra("email",email_id);
+        startActivity(i);
     }
 }

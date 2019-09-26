@@ -29,7 +29,7 @@ import org.w3c.dom.Text;
 
 public class LoginFireActivity extends AppCompatActivity {
 
-    private EditText Name ;
+    public EditText Name ;
     private EditText Password ;
 
     private Button Login ;
@@ -37,7 +37,7 @@ public class LoginFireActivity extends AppCompatActivity {
     private int counter = 5 ;
 
     private FirebaseAuth mAuth ;
-
+   // private String email;
     private ProgressDialog progressDialog ;
     private TextView forgotpassword;
 
@@ -48,6 +48,7 @@ public class LoginFireActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login_fire);
 
         Name = (EditText)findViewById(R.id.loginEmail);
+       // email = Name.toString();
         Password = (EditText)findViewById(R.id.loginPassword);
 
         Login = (Button)findViewById(R.id.loginBtn);
@@ -102,7 +103,7 @@ public class LoginFireActivity extends AppCompatActivity {
 
     }
 
-    private void validate(String userName,String userPassword){
+    private void validate(final String userName, String userPassword){
 
         progressDialog.setMessage("Checking....");
         progressDialog.show();
@@ -113,7 +114,10 @@ public class LoginFireActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     progressDialog.dismiss();
                     Toast.makeText(LoginFireActivity.this,"Login Successfull",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(LoginFireActivity.this,dashboard.class));
+                    Intent intent = new Intent(LoginFireActivity.this,dashboard.class);
+                    intent.putExtra("email",userName);
+                    startActivity(intent);
+
                 }else{
                     Toast.makeText(LoginFireActivity.this,"Login Failed",Toast.LENGTH_SHORT).show();
                 }
@@ -133,4 +137,20 @@ public class LoginFireActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        if(user != null) {
+            //user is already connected  so we need to redirect him to home page
+            Intent intent = new Intent(LoginFireActivity.this,dashboard.class);
+            intent.putExtra("email",user.getEmail());
+            startActivity(intent);
+
+        }
+
+
+
+    }
 }

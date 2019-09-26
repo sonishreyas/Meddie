@@ -11,14 +11,16 @@ public class Doctor implements Serializable{
     private String docApnmnt;
     private String docPhone;
     private String docEmail;
+    private String userEmail;
 
-    public Doctor(int docId, String docName, String docDetails, String docApnmnt, String docPhone, String docEmail) {
+    public Doctor(int docId, String docName, String docDetails, String docApnmnt, String docPhone, String docEmail,String userEmail) {
         this.docId = docId;
         this.docName = docName;
         this.docDetails = docDetails;
         this.docApnmnt = docApnmnt;
         this.docPhone = docPhone;
         this.docEmail = docEmail;
+        this.userEmail = userEmail;
     }
 
     public Doctor(String docName, String docDetails, String docApnmnt, String docPhone, String docEmail) {

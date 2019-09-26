@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.forever.meddie.SQL.DoctorDatabaseHelper;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -40,6 +41,7 @@ public class DoctorDatabaseSource {
         values.put(DoctorDatabaseHelper.DOC_APNMT_DATE, doctor.getDocApnmnt());
         values.put(DoctorDatabaseHelper.DOC_PHONE, doctor.getDocPhone());
         values.put(DoctorDatabaseHelper.DOC_EMAIL, doctor.getDocEmail());
+        values.put(DoctorDatabaseHelper.USER_EMAIL, FirebaseAuth.getInstance().getCurrentUser().getEmail());
         long id = sqLiteDatabase.insert(DoctorDatabaseHelper.DOCTOR_INFO_TABLE,null,values);
 
         this.close();
@@ -52,10 +54,11 @@ public class DoctorDatabaseSource {
 
     }
 
-    public ArrayList<Doctor> getAllDoctor(){
+    public ArrayList<Doctor> getAllDoctor(String useremail){
         ArrayList<Doctor> doctors = new ArrayList<>();
         this.open();
         Cursor cursor = sqLiteDatabase.query(DoctorDatabaseHelper.DOCTOR_INFO_TABLE,null,null,null,null,null,null);
+        //Cursor cursor = sqLiteDatabase.
         cursor.moveToFirst();
         if (cursor != null && cursor.getCount() > 0){
             for (int i = 0;i < cursor.getCount();i++){
@@ -65,9 +68,11 @@ public class DoctorDatabaseSource {
                 String docApnmnt=cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_APNMT_DATE));
                 String docPhone = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_PHONE));
                 String docEmail = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.DOC_EMAIL));
-
-                doctor = new Doctor(id,docName,docDetails,docApnmnt,docPhone,docEmail);
-                doctors.add(doctor);
+//               String useremail = cursor.getString(cursor.getColumnIndex(DoctorDatabaseHelper.USER_EMAIL));
+                //if( useremail.equals(FirebaseAuth.getInstance().getCurrentUser().getEmail())) {
+                    doctor = new Doctor(id, docName, docDetails, docApnmnt, docPhone, docEmail,useremail);
+                    doctors.add(doctor);
+                //}
                 cursor.moveToNext();
             }
         }

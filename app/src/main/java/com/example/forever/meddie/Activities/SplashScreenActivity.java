@@ -11,7 +11,7 @@ import com.example.forever.meddie.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    private int SLEEP_TIMER = 5 ;
+    private int SLEEP_TIMER = 2 ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
